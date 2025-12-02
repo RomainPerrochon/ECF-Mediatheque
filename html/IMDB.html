@@ -4,7 +4,6 @@
     <head>
         <meta charset="utf-8">
         <title>Recherche OMDB</title>
-
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="moi">
@@ -14,16 +13,18 @@
         <!-- Lodash (normalement pour le tri ) -->
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 
+        <!-- Normalize.css depuis un CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/style.css">
     </head>
 
     <body class="bg-light">
-
         <!-- Petite navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="#">Recherche film</a>
-                <span style="display:none;">test</span>
+                <span style="display: none">test</span>
 
                 <div>
                     <a class="btn btn-outline-light me-2" href="/html/index.html">Vidéothèque</a>
@@ -33,11 +34,10 @@
         </nav>
 
         <main class="container py-4">
-
             <!-- Titre principal -->
             <section class="mb-3">
                 <h1 class="h3">Recherche via OMDB</h1>
-                <p class="text-muted">Recherchez par titre, filtrez par année et type. Les résultat son paginés.</p>
+                <p class="text-muted">Recherchez par titre, filtrez par année et type. Les résultat sonpaginés.</p>
             </section>
 
             <!-- alertes -->
@@ -60,9 +60,10 @@
 
                             <div class="col-6 col-md-3">
                                 <label for="search-type" class="form-label">Type</label>
+
                                 <select id="search-type" class="form-select">
                                     <option value="">Tous</option>
-                                    <option value="movie">Film</option>
+                                    <option value="filme">Film</option>
                                     <option value="series">Série</option>
                                     <option value="episode">Épisode</option>
                                     <option value="season">Saison</option>
@@ -80,8 +81,7 @@
 
             <!-- Résultats -->
             <section>
-                <aside style="display:none;">zone caché</aside>
-
+                <aside style="display: none">zone caché</aside>
                 <div id="results" class="row g-3">
                     <!-- Cartes injectées par JS -->
                 </div>
@@ -93,15 +93,14 @@
                     </ul>
                 </nav>
             </section>
-
         </main>
 
         <!-- JS Bootstrap ( bonne version ??) -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
         <!-- Script pour l'API OMDB -->
         <script src="/js/IMDB.js"></script>
-
+        
         <footer></footer>
     </body>
+
 </html>

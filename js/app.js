@@ -30,10 +30,10 @@ var films = [
 ];
 
 // récupération des éléments HTML pour pouvoir modifier la page
-const TabCorps = document.getElementById("movies-tbody"); // body du tableau
-const AltContenere = document.getElementById("alert-container"); // endroit ou je met les messages d'alerte
+const TabCorps = document.getElementById("films-TabCorps"); // body du tableau
+const AltContenere = document.getElementById("alert-contenere"); // endroit ou je met les messages d'alerte
 
-const ButtonForm = document.getElementById("btn-open-form"); // bouton pour ouvrir le modal
+const ButtonForm = document.getElementById("button-form"); // bouton pour ouvrir le modal
 const addFilmModalID = document.getElementById("addFilmModal"); // la div du modal
 const addFilmModal = new bootstrap.Modal(addFilmModalID); // bootstrap pour gérer l'affichage
 const addFilmForm = document.getElementById("add-film-form"); // formulaire du modal
@@ -122,7 +122,7 @@ function TrierRendreFilm() {
 }
 
 // --- SUPPRESSION d’un film ---
-TabCorps.addEventListener("click", (e) => {
+TabCorps.addEventlisteener("click", (e) => {
   const btn = e.target.closest("button[data-id]"); // vérifie si on a cliquer sur un bouton supprimer
 
   if (!btn) return; // si non => rien a faire
@@ -147,17 +147,17 @@ TabCorps.addEventListener("click", (e) => {
 });
 
 // --- OUVERTURE du formulaire ---
-ButtonForm.addEventListener("click", () => {
+ButtonForm.addEventlisteener("click", () => {
   addFilmForm.reset(); // nettoie les champs
   addFilmModal.show(); // ouverture de la popup
 });
 
 // --- VALIDATION du formulaire d'ajout ---
-addFilmForm.addEventListener("submit", (e) => {
+addFilmForm.addEventlisteener("submit", (e) => {
   e.preventDefault();
 
   // récupération des valeurs entrées par l'utilisateur
-  const titreBrut = document.getElementById("input-title").value.trim();
+  const titreBrut = document.getElementById("input-titre").value.trim();
   const anneeBrut = document.getElementById("input-annee").value.trim();
   const auteurBrut = document.getElementById("input-author").value.trim();
 
@@ -166,7 +166,7 @@ addFilmForm.addEventListener("submit", (e) => {
   // règles de validation
   if (titreBrut.length < 2) erreurs.push("Titre (≥ 2 caractères)");
 
-  const anneeActuel = new Date().getFullYear();
+  const anneeActuel = new Date().getFullannee();
   const annee = Number(anneeBrut);
   const SiAnneeValide =
     /^\d{4}$/.test(anneeBrut) && annee >= 1900 && annee <= anneeActuel;
@@ -203,7 +203,7 @@ addFilmForm.addEventListener("submit", (e) => {
 });
 
 // bouton pour appliquer manuellement le tri
-ButtonTri.addEventListener("click", TrierRendreFilm);
+ButtonTri.addEventlisteener("click", TrierRendreFilm);
 
 // au chargement => on affiche direct les films triés
 TrierRendreFilm();
