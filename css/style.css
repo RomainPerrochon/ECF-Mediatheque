@@ -6,34 +6,15 @@
     border: none; 
 }
 
+/* Début du body */
 body {
     color: #000000;
+    background: linear-gradient(to bottom, #000000, #ff0000, #000000);
     overflow-x: hidden;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    z-index: auto;
-    /*background:
-        url("/img/pellicule-left.png") left top/150px auto repeat-y, /* Image de pellicule à gauche 
-        url("/img/pellicule-right.png") right top/150px auto repeat-y, /* Image de pellicule à droite 
-        url("/img/projecteur.png") 90% 5% / 250px auto no-repeat, /* Image de projecteur en haut à droite 
-        url("/img/popcorn.png") 10% 90% / 220px auto no-repeat, /* Image de popcorn en bas à gauche 
-        linear-gradient(to bottom, #000000, #7f1d1d 50%, #000000); /* Dégradé de fond */ 
-
-    background:
-            /* Pellicule gauche - Debug (rouge translucide) */
-            linear-gradient(rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.3)) left top/150px auto repeat-y,
-            /* Pellicule droite - Debug (bleu translucide) */
-            linear-gradient(rgba(0, 100, 255, 0.3), rgba(0, 100, 255, 0.3)) right top/150px auto repeat-y,
-            /* Projecteur - Debug (vert translucide) */
-            linear-gradient(rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0.3)) 90% 5%/250px auto no-repeat,
-            /* Popcorn - Debug (jaune translucide) */
-            linear-gradient(rgba(255, 255, 0, 0.3), rgba(255, 255, 0, 0.3)) 10% 90%/220px auto no-repeat,
-            /* Fond normal */
-            linear-gradient(to bottom, #000000, #7f1d1d 50%, #000000);
-
-
-
+    z-index: auto; 
 }
 
 body:focus {
@@ -44,7 +25,7 @@ body:focus {
 body::before {
     opacity: 0.3;
     pointer-events: none; 
-    content: ""; 
+    content: "";
     bottom: 0;
     top: 0;
     background: repeating-linear-gradient(
@@ -70,7 +51,7 @@ body::after {
     left: 0;
 }
 
-/* wrapper  */
+/* wrapper */
 .page-wrapper {
     z-index: 1;
     position: relative;
@@ -224,7 +205,7 @@ nav {
     border: 2px solid;
     z-index: 1000;
     font-weight: 700;
-    opacity: 1;
+    opacity: 1; 
     transition: opacity 0.2s ease; 
 }
 
@@ -259,7 +240,6 @@ nav {
     }
 }
 
-
 /* =============================== */
 .container {
     padding: 2.5rem 1rem;
@@ -285,7 +265,7 @@ nav {
 }
 
 .card:focus-visible {
-    border-color: #ca8a04; 
+    border-color: #ca8a04;
 }
 
 .card::before {
@@ -338,7 +318,6 @@ nav {
     transform: translateZ(0); 
 }
 
-/* Décor ticket */
 .form-container::before, .form-container::after {
     content: "";
     width: 100%;
@@ -512,6 +491,8 @@ nav {
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
     color: #fde68a;
+
+    /* Inutile : */
     appearance: none;
 }
 
@@ -631,7 +612,7 @@ tbody td:first-child {
     color: #000000;
 }
 
-/* Delete */
+/* supprimer */
 .btn-delete {
     color: #fde68a;
     padding: 0.75rem 1.25rem;
@@ -738,7 +719,9 @@ footer .container {
     color: #ca8a04;
 }
 
+/* RESPONSIVE */
 /* =============================== */
+
 @media (max-width: 768px) {
     .logo-text h1 {
         font-size: 2rem;
