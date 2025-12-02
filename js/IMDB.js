@@ -8,7 +8,7 @@ const results = document.getElementById("results"); // zone ou s'affiche les fil
 const pagination = document.getElementById("pagination"); // zone avec les numeros de pages
 const btnReset = document.getElementById("btn-reset"); // bouton pour remettre la recherche a zero
 
-// la clé API OMDB (à ne pas partager publiquement en vrai !)
+// la clé API OMDB (ne pas partager)
 const OMDB_API_KEY = "4d5ded75";
 
 // petite fonction pour afficher un message d'alerte (genre erreur, warning, succes, etc)
@@ -33,7 +33,7 @@ function showAlert(type, message, ms = 3000)
         if (alertEl)
         {
             const bsAlert = new bootstrap.Alert(alertEl);
-            bsAlert.close(); // anim de fermeture
+            bsAlert.close(); // animation de fermeture
         }
     }, ms);
 }
@@ -49,13 +49,13 @@ function buildQuery({ title, year, type, page })
     if (type) url.searchParams.set("type", type); // type de contenu
     if (page) url.searchParams.set("page", page); // pagination
 
-    return url.toString(); // je renvoi l'URL complète
+    return url.toString(); // renvoi l'URL complète
 }
 
 // fonction asyncrone qui appelle l'API et affiche les résultats
 async function fetchResults(params)
 {
-    const url = buildQuery(params); // je récupère l'URL construite
+    const url = buildQuery(params); // récupère l'URL construite
     try
     {
         const res = await fetch(url); // appel API (peut être long)
@@ -81,7 +81,7 @@ async function fetchResults(params)
     }
     catch (err)
     {
-        console.error(err); // juste pour debug si souci
+        console.error(err); // debug si souci
         showAlert("danger", "Erreur réseau. Réessayez plus tard.", 5000);
         return { list: [], total: 0 };
     }
@@ -96,10 +96,10 @@ function renderResults(items)
 
     items.forEach((item) =>
     {
-        const col = document.createElement("div"); // colonne bootstrap
+        const col = document.createElement("div"); // colonne bootstrap ??
         col.className = "col-12 col-sm-6 col-md-4 col-lg-3";
 
-        // si OMDB n'a pas d'image, mettre image 'fallback'
+        // si OMDB n'a pas d'image => mettre image 'fallback'
         const poster =
             item.Poster && item.Poster !== "N/A"
                 ? item.Poster
@@ -132,7 +132,7 @@ function renderPagination(total, params)
 
     const currentPage = Number(params.page || 1);
 
-    // petite fonction pour créer un bouton de page
+    // fonction pour créer un bouton de page
     const createPageItem = (pageNum, label = pageNum, disabled = false, active = false) =>
     {
         const li = document.createElement("li");
@@ -193,7 +193,7 @@ function doSearch({ title, year, type, page = 1 })
         page,
     };
 
-    // titre min 2 lettres, sinon OMDB répond rien
+    // titre min 2 lettres, sinon OMDB renvoie rien
     if (!q.title || q.title.length < 2)
     {
         showAlert("warning", "Le titre doit contenir au moins 2 caractères.", 4000);
@@ -202,8 +202,6 @@ function doSearch({ title, year, type, page = 1 })
 
     fetchResults(q); // lance la recherche
 }
-
-// -- ÉVÉNEMENTS --
 
 // quand valide le formulaire
 form.addEventListener("submit", (e) =>

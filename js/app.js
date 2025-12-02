@@ -47,16 +47,16 @@ function capitalizeWords(str)
     if (!str) return str; // si rien retourn rien (évite erreur)
 
     return str
-        .trim()     // j'enlève les espaces au debut / fin
+        .trim()     // enlève les espaces au debut / fin
         .split(/\s+/) // sépare en mots (si plusieurs espace, ça marche quand même)
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // je met la 1ere lettre en maj
-        .join(" "); // je recombine le tout
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // met la 1ere lettre en maj
+        .join(" "); // recombine le tout
 }
 
 // fonction pour afficher un petit message d'alerte (genre erreur ou succès)
 function showAlert(type, message, ms = 3000)
 {
-    const wrapper = document.createElement("div"); // je crée un conteneur
+    const wrapper = document.createElement("div"); // crée un conteneur
     wrapper.innerHTML = `
         <div class="alert alert-${type} alert-dismissible fade show" role="alert">
         ${message}
@@ -65,7 +65,7 @@ function showAlert(type, message, ms = 3000)
     `;
     alertContainer.appendChild(wrapper);
 
-    // j'enlève l'alerte après X millisecondes
+    // enlève l'alerte après X millisecondes
     setTimeout(() =>
     {
         const alertEl = wrapper.querySelector(".alert");
@@ -80,9 +80,9 @@ function showAlert(type, message, ms = 3000)
 // fonction qui dessine le tableau avec les films
 function renderTable(data)
 {
-    tbody.innerHTML = ""; // je vide d'abord le tableau
+    tbody.innerHTML = ""; // vide d'abord le tableau
 
-    // si aucun film on affiche un message vide
+    // si aucun film => affiche un message vide
     if (!data || data.length === 0)
     {
         tbody.innerHTML = `<tr>
@@ -129,7 +129,7 @@ function sortMoviesAndRender()
         sorted = _.orderBy(sorted, ["annee"], ["desc"]);
     }
 
-    renderTable(sorted); // je redessine le tableau
+    renderTable(sorted); // redessine le tableau
 }
 
 // --- SUPPRESSION d’un film ---
@@ -137,7 +137,7 @@ tbody.addEventListener("click", (e) =>
 {
     const btn = e.target.closest("button[data-id]"); // vérifie si on a cliquer sur un bouton supprimer
 
-    if (!btn) return; // si non, rien a faire
+    if (!btn) return; // si non => rien a faire
 
     const id = Number(btn.getAttribute("data-id")); // récupère l'id du film
     const movie = movies.find(m => m.id === id); // cherche le film dans le tableau
