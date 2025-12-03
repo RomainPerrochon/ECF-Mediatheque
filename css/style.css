@@ -768,3 +768,7 @@ footer .container {
 *:not(div):not(span):not(body) {
   backface-visibility: visible;
 }
+
+.form-label {
+  color: rgb(206, 159, 7)
+}
