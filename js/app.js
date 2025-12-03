@@ -23,7 +23,7 @@ var films = [
 
   {
     id: Date.now() + 4,
-    titre: "It: chapter 1",
+    titre: "It: chapitre 1",
     annee: 2019,
     auteur: "Andy Muschietti",
   },
