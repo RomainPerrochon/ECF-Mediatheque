@@ -98,12 +98,12 @@ function ResultaztRenvoyer(items) {
     col.innerHTML = `
         <div class="card h-100">
             <img src="${poster}" class="card-img-top" alt="Poster ${
-      item.titre
+      item.Title
     }">
 
             <div class="card-body">
-                <h3 class="h6 card-titre mb-1">${item.titre}</h3>
-                <p class="card-text text-muted mb-0">Année: ${item.annee}</p>
+                <h3 class="h6 card-titre mb-1">${item.Title}</h3>
+                <p class="card-text text-muted mb-0">Année: ${item.Year}</p>
                 ${
                   item.Type
                     ? `<span class="badge bg-secondary mt-2">${item.Type}</span>`
