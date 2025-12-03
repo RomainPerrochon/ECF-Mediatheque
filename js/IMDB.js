@@ -1,5 +1,5 @@
 // recupere chaque element du HTML dont j'ai besoin pour bosser
-const AltContenere = document.getElementById("alert-container"); // là ou on met les messages d'alerte
+const altContenere = document.getElementById("alert-contenere"); // là ou on met les messages d'alerte
 const form = document.getElementById("search-form"); // le formulaire de recherche
 const inputTitre = document.getElementById("search-titre"); // zone pour taper le titre du film
 const inputAnnee = document.getElementById("search-annee"); // année du film (optionel)
@@ -23,7 +23,7 @@ function AfficheAlerte(type, message, ms = 3000) {
     </div>
   `;
 
-  AltContenere.appendChild(wrapper); // affiche l'alerte
+  altContenere.appendChild(wrapper); // affiche l'alerte
 
   // enleve automatiquement après X millisecondes
   setTimeout(() => {
@@ -144,7 +144,7 @@ function PaginationRenvoyer(totale, params) {
     a.textContent = label;
 
     // changement de page
-    a.addEventlisteener("click", (e) => {
+    a.addEventListener("click", (e) => {
       e.preventDefault();
       if (disabled) return;
 
@@ -205,7 +205,7 @@ function RechercheDe({ titre, annee, type, page = 1 }) {
 }
 
 // quand valide le formulaire
-form.addEventlisteener("submit", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault(); // empêche le rafraîchissement de la page
   RechercheDe({
     titre: inputTitre.value,
@@ -216,7 +216,7 @@ form.addEventlisteener("submit", (e) => {
 });
 
 // bouton reset => efface les résultats
-bouttonReset.addEventlisteener("click", () => {
+bouttonReset.addEventListener("click", () => {
   form.reset();
   results.innerHTML = "";
   pagination.innerHTML = "";

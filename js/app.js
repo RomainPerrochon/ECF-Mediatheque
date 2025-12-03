@@ -1,4 +1,4 @@
-// je met un id unique avec Date.now, c'est pas parfait mais ça fonctionne assez bien
+// id unique avec Date.now
 var films = [
   {
     id: Date.now() + 1, // Id généré a partir de l'heure.. +1 au cas ou ça se répéte trop vite
@@ -31,9 +31,9 @@ var films = [
 
 // récupération des éléments HTML pour pouvoir modifier la page
 const TabCorps = document.getElementById("films-TabCorps"); // body du tableau
-const AltContenere = document.getElementById("alert-contenere"); // endroit ou je met les messages d'alerte
+const altContenere = document.getElementById("alert-contenere"); // endroit ou je met les messages d'alerte
 
-const ButtonForm = document.getElementById("button-form"); // bouton pour ouvrir le modal
+const ButtonForm = document.getElementById("btn-open-form"); // bouton pour ouvrir le modal
 const addFilmModalID = document.getElementById("addFilmModal"); // la div du modal
 const addFilmModal = new bootstrap.Modal(addFilmModalID); // bootstrap pour gérer l'affichage
 const addFilmForm = document.getElementById("add-film-form"); // formulaire du modal
@@ -61,7 +61,7 @@ function AfficheAlerte(type, message, ms = 3000) {
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
         </div>
     `;
-  AltContenere.appendChild(wrapper);
+  altContenere.appendChild(wrapper);
 
   // enlève l'alerte après X millisecondes
   setTimeout(() => {
@@ -122,7 +122,7 @@ function TrierRendreFilm() {
 }
 
 // --- SUPPRESSION d’un film ---
-TabCorps.addEventlisteener("click", (e) => {
+TabCorps.addEventListener("click", (e) => {
   const btn = e.target.closest("button[data-id]"); // vérifie si on a cliquer sur un bouton supprimer
 
   if (!btn) return; // si non => rien a faire
@@ -147,13 +147,13 @@ TabCorps.addEventlisteener("click", (e) => {
 });
 
 // --- OUVERTURE du formulaire ---
-ButtonForm.addEventlisteener("click", () => {
+ButtonForm.addEventListener("click", () => {
   addFilmForm.reset(); // nettoie les champs
   addFilmModal.show(); // ouverture de la popup
 });
 
 // --- VALIDATION du formulaire d'ajout ---
-addFilmForm.addEventlisteener("submit", (e) => {
+addFilmForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   // récupération des valeurs entrées par l'utilisateur
@@ -166,7 +166,7 @@ addFilmForm.addEventlisteener("submit", (e) => {
   // règles de validation
   if (titreBrut.length < 2) erreurs.push("Titre (≥ 2 caractères)");
 
-  const anneeActuel = new Date().getFullannee();
+  const anneeActuel = new Date().getFullYear();
   const annee = Number(anneeBrut);
   const SiAnneeValide =
     /^\d{4}$/.test(anneeBrut) && annee >= 1900 && annee <= anneeActuel;
@@ -203,7 +203,7 @@ addFilmForm.addEventlisteener("submit", (e) => {
 });
 
 // bouton pour appliquer manuellement le tri
-ButtonTri.addEventlisteener("click", TrierRendreFilm);
+ButtonTri.addEventListener("click", TrierRendreFilm);
 
 // au chargement => on affiche direct les films triés
 TrierRendreFilm();
