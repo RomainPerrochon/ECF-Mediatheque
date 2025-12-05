@@ -11,7 +11,7 @@ const bouttonReset = document.getElementById("btn-reset"); // bouton pour remett
 // la clé API IMDB (ne pas partager)
 const CLE_API_IMDB = "4d5ded75";
 
-// pour afficher un message d'alerte (genre erreur, warning, succes)
+// pour afficher un message d'alerte (warning, succes)
 function AfficheAlerte(type, message, ms = 3000) {
   const wrapper = document.createElement("div"); // bloc qui va contenir l'alerte
 

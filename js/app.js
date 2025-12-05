@@ -30,7 +30,7 @@ var films = [
 ];
 
 // récupération des éléments du html pour modifier la page
-const TabCorps = document.getElementById("films-TabCorps"); // body du tableau
+const TabCorps = document.getElementById("films-TabCorps"); // corpd du tableau
 const altContenere = document.getElementById("alert-contenere"); // endroit ou je met les messages d'alerte
 
 const ButtonForm = document.getElementById("btn-open-form"); // bouton pour ouvrir le modal
@@ -63,7 +63,7 @@ function AfficheAlerte(type, message, ms = 3000) {
     `;
   altContenere.appendChild(wrapper);
 
-  // enlève l'alerte après X ms
+  // enleve l'alerte après X ms
   setTimeout(() => {
     const alertEl = wrapper.querySelector(".alert");
     if (alertEl) {
@@ -166,7 +166,7 @@ addFilmForm.addEventListener("submit", (e) => {
 
   const erreurs = []; // tableau des erreurs trouvées
 
-  // règles de validation
+  // regle de validation
   if (titreBrut.length < 2) erreurs.push("Titre (≥ 2 caractères)");
 
   const anneeActuel = new Date().getFullYear();
